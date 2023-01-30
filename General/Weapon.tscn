@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player/Weapon.cs" type="Script" id=1]
+[ext_resource path="res://Projectiles/Bullet.tscn" type="PackedScene" id=2]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource( 1 )
+WeaponBullet = ExtResource( 2 )
+AttackSpeed = 2.5
+TimerPath = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="."]

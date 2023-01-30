@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Enemies/RedEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/pixel spaceships/purple_03.png" type="Texture" id=2]
+[ext_resource path="res://Projectiles/BulletEnemy2.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 28.0
+height = 41.0589
+
+[sub_resource type="Shader" id=18]
+code = "shader_type canvas_item;
+
+uniform float white_progress : hint_range(0,1) = 0;
+
+vec3 interpolate_vec3(vec3 start, vec3 end, float delta){
+    return start + (end - start) * delta;
+}
+
+void fragment(){
+    vec4 origin = texture(TEXTURE, UV);
+    COLOR.rgb = interpolate_vec3(origin.rgb, vec3(1,1,1), white_progress);
+    COLOR.a = origin.a;
+}"
+
+[sub_resource type="ShaderMaterial" id=19]
+resource_local_to_scene = true
+shader = SubResource( 18 )
+shader_param/white_progress = 0.0
+
+[node name="RedEnemy" instance=ExtResource( 1 )]
+enemyType = 1
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="2"]
+material = SubResource( 19 )
+texture = ExtResource( 2 )
+
+[node name="Weapon" parent="." index="3"]
+WeaponBullet = ExtResource( 3 )

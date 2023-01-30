@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Projectiles/Bullet.cs" type="Script" id=1]
+[ext_resource path="res://Art/dfa6770603ecf5afb82ee7e880375bc68c681ee5.png" type="Texture" id=2]
+[ext_resource path="res://Art/Laser Sprites/01.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 14.0
+height = 24.0
+
+[node name="MainBullet" type="Area2D"]
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 2
+collision_mask = 4
+script = ExtResource( 1 )
+Damage = 240
+Speed = 520.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = -1.5708
+texture = ExtResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 2 )
+texture_scale = 0.4
+
+[node name="Timer" type="Timer" parent="."]

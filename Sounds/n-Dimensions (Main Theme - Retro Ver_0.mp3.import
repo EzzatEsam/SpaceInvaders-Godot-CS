@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/n-Dimensions (Main Theme - Retro Ver_0.mp3-ced1d950fdf72052c3f4cb45bb22f49d.mp3str"
+
+[deps]
+
+source_file="res://Sounds/n-Dimensions (Main Theme - Retro Ver_0.mp3"
+dest_files=[ "res://.import/n-Dimensions (Main Theme - Retro Ver_0.mp3-ced1d950fdf72052c3f4cb45bb22f49d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
